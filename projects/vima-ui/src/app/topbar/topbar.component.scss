@@ -1,0 +1,44 @@
+
+
+.app-navbar {
+  background-color: #4A6b83;
+  color: #FFFFFF;
+
+  a {
+    cursor: pointer;
+  }
+
+  img {
+    height: 60px;
+    width: auto;
+  }
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.full-navbar {
+  display: flex;
+
+  button {
+    font-size: 20px;
+  }
+
+}
+
+.active {
+  color: orange;
+}
+
+.name {
+  position: absolute;
+  top: -10px;
+}
+.sub-title {
+  font-size: .8rem;
+  font-style: italic;
+  position: relative;
+  top: -10px;
+  font-weight: 400;
+}

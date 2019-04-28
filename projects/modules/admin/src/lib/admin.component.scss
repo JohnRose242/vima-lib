@@ -1,0 +1,7 @@
+gridster {
+  height: calc(98vh - 64px);
+
+  ::ng-deep mat-card {
+    height: 100%;
+  }
+}

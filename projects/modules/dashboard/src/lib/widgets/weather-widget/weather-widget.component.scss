@@ -1,0 +1,34 @@
+mat-card {
+  color: #FFF;
+  padding: 6px;
+  border-radius: 0;
+  // TODO Need better images for weather backgrounds
+  background: no-repeat url("https://img.xda-cdn.com/KT5sIpMGpuft0DqDp9CtxIbrZSU=/http%3A%2F%2Fuploads.tapatalk-cdn.com%2F20160227%2F4661ed2c5f46db41dd62ccb4966e5e4e.jpg");
+  background-size: cover;
+  cursor: pointer;
+
+  .temp {
+    font-size: 2.25em;
+  }
+
+  .summary {
+    font-size: 1.25em;
+  }
+
+  mat-card-subtitle {
+    color: #FFF;
+  }
+
+  mat-card-content {
+    padding: 5px 15px 0 15px;
+  }
+
+  .forecast-wrapper {
+    text-align: center;
+
+    .day {
+      text-transform: uppercase;
+    }
+  }
+
+}

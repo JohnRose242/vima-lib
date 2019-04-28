@@ -1,0 +1,35 @@
+mat-card {
+  color: #FFF;
+  padding: 6px;
+  border-radius: 0;
+  background-color: #4A6b83;
+
+  mat-card-subtitle {
+    color: #FFF;
+  }
+
+  mat-card-content {
+    min-height: 300px;
+  }
+
+  table {
+    width: 100%;
+    color: #FFF;
+    background-color: #4A6b83;
+
+    .mat-cell, .mat-header-cell {
+      color: #FFF;
+    }
+  }
+
+  mat-paginator {
+    color: #FFF;
+    background-color: #4A6b83;
+    margin: 0;
+
+  }
+}
+
+::ng-deep .mat-select-value {
+  color: #FFF;
+}

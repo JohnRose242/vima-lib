@@ -1,0 +1,9 @@
+<gridster *ngIf="ready" [options]="options">
+  <gridster-item *ngFor="let item of items" [item]="item">
+    <ndc-dynamic [ndcDynamicComponent]="item.component" [ndcDynamicInputs]="item.inputs" [ndcDynamicOutputs]="item.outputs"></ndc-dynamic>
+  </gridster-item>
+</gridster>
+<div *ngIf="!ready" class="progress-wrapper">
+  <mat-spinner></mat-spinner>
+</div>
+

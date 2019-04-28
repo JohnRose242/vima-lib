@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/dashboard",
+  "lib": {
+    "entryFile": "src/projects.ts",
+    "umdModuleIds": {
+      "chart.js": "Chart",
+      "angular-gridster2": "angularGridster2",
+      "ng-dynamic-component": "ngDynamicComponent",
+      "@agm/core": "agmCore"
+    }
+  }
+}

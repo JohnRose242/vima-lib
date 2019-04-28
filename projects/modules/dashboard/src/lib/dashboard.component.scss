@@ -1,0 +1,14 @@
+gridster {
+  height: calc(98vh - 64px);
+
+  ::ng-deep mat-card {
+    height: 100%;
+  }
+}
+
+.progress-wrapper {
+  height: calc(98vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

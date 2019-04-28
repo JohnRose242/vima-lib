@@ -1,0 +1,12 @@
+<mat-toolbar class="app-navbar fade-in">
+  <a (click)="router.navigate(['dashboard'])">
+    <img src="{{logo}}">
+  </a>
+  <span class="fill-remaining-space"></span>
+  <div class="full-navbar" xLayout="row" fxShow="false" fxShow.gt-sm>
+    <button *ngFor="let link of links" mat-button [class.active]="link.active" (click)="handleClick(link)">
+      <mat-icon >{{link.icon}}</mat-icon>
+      <span>{{link.displayName}}</span>
+    </button>
+  </div>
+</mat-toolbar>

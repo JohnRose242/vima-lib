@@ -1,0 +1,310 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects/modules",
+  "projects": {
+    "vima-ui": {
+      "root": "projects/vima-ui/",
+      "sourceRoot": "projects/vima-ui/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/vima-ui",
+            "index": "projects/vima-ui/src/index.html",
+            "main": "projects/vima-ui/src/main.ts",
+            "polyfills": "projects/vima-ui/src/polyfills.ts",
+            "tsConfig": "projects/vima-ui/tsconfig.app.json",
+            "assets": [
+              "projects/vima-ui/src/favicon.ico",
+              "projects/vima-ui/src/assets"
+            ],
+            "styles": [
+              "projects/vima-ui/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/vima-ui/src/environments/environment.ts",
+                  "with": "projects/vima-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "vima-ui:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "vima-ui:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "vima-ui:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/vima-ui/src/test.ts",
+            "polyfills": "projects/vima-ui/src/polyfills.ts",
+            "tsConfig": "projects/vima-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/vima-ui/karma.conf.js",
+            "styles": [
+              "projects/vima-ui/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/vima-ui/src/favicon.ico",
+              "projects/vima-ui/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/vima-ui/tsconfig.app.json",
+              "projects/vima-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "vima-ui-e2e": {
+      "root": "projects/vima-ui-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/vima-ui-e2e/protractor.conf.js",
+            "devServerTarget": "vima-ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vima-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/vima-ui-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "dashboard": {
+      "root": "projects/modules/dashboard",
+      "sourceRoot": "projects/modules/dashboard/src",
+      "projectType": "library",
+      "prefix": "vima",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/modules/dashboard/tsconfig.lib.json",
+            "project": "projects/modules/dashboard/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/modules/dashboard/src/test.ts",
+            "tsConfig": "projects/modules/dashboard/tsconfig.spec.json",
+            "karmaConfig": "projects/modules/dashboard/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/modules/dashboard/tsconfig.lib.json",
+              "projects/modules/dashboard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "reports": {
+      "root": "projects/modules/reports",
+      "sourceRoot": "projects/modules/reports/src",
+      "projectType": "library",
+      "prefix": "vima",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/modules/reports/tsconfig.lib.json",
+            "project": "projects/modules/reports/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/modules/reports/src/test.ts",
+            "tsConfig": "projects/modules/reports/tsconfig.spec.json",
+            "karmaConfig": "projects/modules/reports/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/modules/reports/tsconfig.lib.json",
+              "projects/modules/reports/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "admin": {
+      "root": "projects/modules/admin",
+      "sourceRoot": "projects/modules/admin/src",
+      "projectType": "library",
+      "prefix": "vima",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/modules/admin/tsconfig.lib.json",
+            "project": "projects/modules/admin/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/modules/admin/src/test.ts",
+            "tsConfig": "projects/modules/admin/tsconfig.spec.json",
+            "karmaConfig": "projects/modules/admin/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/modules/admin/tsconfig.lib.json",
+              "projects/modules/admin/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "theme": {
+      "root": "projects/modules/theme",
+      "sourceRoot": "projects/modules/theme/src",
+      "projectType": "library",
+      "prefix": "vima",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/modules/theme/tsconfig.lib.json",
+            "project": "projects/modules/theme/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/modules/theme/src/test.ts",
+            "tsConfig": "projects/modules/theme/tsconfig.spec.json",
+            "karmaConfig": "projects/modules/theme/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/modules/theme/tsconfig.lib.json",
+              "projects/modules/theme/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "inventory": {
+      "root": "projects/modules/inventory",
+      "sourceRoot": "projects/modules/inventory/src",
+      "projectType": "library",
+      "prefix": "vima",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/modules/inventory/tsconfig.lib.json",
+            "project": "projects/modules/inventory/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/modules/inventory/src/test.ts",
+            "tsConfig": "projects/modules/inventory/tsconfig.spec.json",
+            "karmaConfig": "projects/modules/inventory/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/modules/inventory/tsconfig.lib.json",
+              "projects/modules/inventory/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "vima-ui"
+}

@@ -1,0 +1,45 @@
+<mat-card (click)="toggleUnits()">
+  <mat-card-header fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="left">
+    <div fxFlex="70%">
+      <mat-card-title>{{loading ? 'Retrieving Weather' : location.name}}</mat-card-title>
+      <mat-card-subtitle *ngIf="!loading">{{date | date: 'EEEE, MMMM d'}}</mat-card-subtitle>
+    </div>
+    <div fxFlex="30%" [style.text-align]="'center'">
+      <span *ngIf="!loading && weatherData.temp" class="temp">{{ weatherData.temp | tempUnit: currentTempUnit }}</span><br>
+      <span *ngIf="!loading && weatherData.summary && rows > 1" class="summary">{{weatherData.summary}}</span><br>
+    </div>
+  </mat-card-header>
+  <mat-card-content *ngIf="!loading && rows > 1">
+    <p *ngIf="!weatherData.temp || (rows > 4 && !forecastData.length)">
+      I'm sorry but we are unable to retrieve any weather information at the moment.
+    </p>
+    <div *ngIf="weatherData?.temp" [style.width]="'100%'" fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="left">
+      <div fxFlex="70%">
+        <span>Humidity: {{weatherData.humidity}}%</span><br>
+        <span>Pressure: {{weatherData.pressure}} hPa</span><br>
+        <span *ngIf="rows > 2">Wind: {{ weatherData.windSpeed | speedUnit: currentSpeedUnit }} {{weatherData.windDirection | windDirection}}</span>
+      </div>
+      <div fxFlex="30%" [style.text-align]="'right'">
+        <span>Min: {{ weatherData.minTemp | tempUnit: currentTempUnit}}</span><br>
+        <span>Max: {{ weatherData.maxTemp | tempUnit: currentTempUnit}}</span>
+      </div>
+    </div>
+    <div *ngIf="rows > 4 && forecastData?.length" class="forecast-wrapper" fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="left" [style.margin-top]="(rows - 4) * 10 + 'px'">
+      <div *ngFor="let day of forecastData" fxFlex="20%">
+        <div class="day-container">
+          <span class="day">{{day.dt * 1000 | date:'EEE'}}</span>
+        </div>
+        <div class="weather-icon-container">
+          <!-- TODO Find a better way to serve images-->
+          <img src="http://openweathermap.org/img/w/{{day.weather[0].icon}}.png">
+        </div>
+        <div class="weather-conditions-container">
+          <span>Min</span><br>
+          <span>{{ day.main.temp_min | tempUnit: currentTempUnit}}</span><br><br>
+          <span>Max</span><br>
+          <span>{{ day.main.temp_max | tempUnit: currentTempUnit}}</span>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

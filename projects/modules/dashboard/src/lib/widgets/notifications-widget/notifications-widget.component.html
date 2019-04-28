@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Notifications</mat-card-title>
+    <mat-icon *ngIf="regularCount > 0" matBadge="{{regularCount}}" matBadgeColor="primary" matBadgePosition="below after">notifications</mat-icon>
+    <mat-icon *ngIf="alertCount > 0" matBadge="{{alertCount}}" matBadgeColor="warn" matBadgePosition="below after">warning</mat-icon>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="notifications" multiTemplateDataRows class="mat-elevation-z8">
+
+      <ng-container matColumnDef="status">
+        <td mat-cell *matCellDef="let item">
+          <mat-icon [color]="item.status === 'alert' ? 'warn' : null">{{item.status === 'normal' ? 'notifications' : 'warning'}}</mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="date">
+        <td mat-cell *matCellDef="let item"> {{item.date | date:'shortDate'}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="subject">
+        <td mat-cell *matCellDef="let item"> {{item.subject}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="read">
+        <td mat-cell *matCellDef="let item">
+          <mat-icon>{{item.read ? 'drafts' : 'email'}}</mat-icon>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let item" [attr.colspan]="columnsToDisplay.length">
+          <div class="example-element-detail" [@detailExpand]="item.id == expandedItem ? 'expanded' : 'collapsed'">
+            <div class="example-element-description">
+              <span>{{item.message}}</span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let item; columns: columnsToDisplay;"
+          class="example-element-row"
+          [class.example-expanded-row]="expandedItem === item.id"
+          (click)="markAsRead(item)">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

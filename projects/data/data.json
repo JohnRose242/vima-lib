@@ -1,0 +1,438 @@
+{
+  "navigationLinks": [
+    {
+      "displayName": "Home",
+      "value": "dashboard",
+      "icon": "home",
+      "roles": [],
+      "route": "/",
+      "active": true
+    },
+    {
+      "displayName": "Inventory",
+      "value": "inventory",
+      "icon": "directions_car",
+      "roles": [],
+      "route": "/inventory",
+      "active": false
+    },
+    {
+      "displayName": "Reports",
+      "value": "reports",
+      "icon": "assignment",
+      "roles": [],
+      "route": "/reports",
+      "active": false
+    },
+    {
+      "displayName": "Admin",
+      "value": "admin",
+      "icon": "settings",
+      "roles": [],
+      "route": "/admin",
+      "active": false
+    }
+  ],
+  "dashboard": [
+    {
+      "cols": 5,
+      "rows": 4,
+      "x": 0,
+      "y": 0,
+      "componentName": "NotificationsWidgetComponent",
+      "inputs": {
+        "dataSource": "111222333"
+      }
+    },
+    {
+      "cols": 5,
+      "rows": 8,
+      "x": 0,
+      "y": 4,
+      "componentName": "TableWidgetComponent",
+      "inputs": {
+        "dataSource": "333444555"
+      }
+    },
+    {
+      "cols": 4,
+      "rows": 4,
+      "x": 5,
+      "y": 0,
+      "componentName": "ChartWidgetComponent",
+      "inputs": {
+        "dataSource": "444555666",
+        "type": "bar",
+        "title": "Vehicle Sales (MTD)",
+        "textColor": "#FFF",
+        "showLegend": false,
+        "showXAxis": true,
+        "showYAxis": true
+      }
+    },
+    {
+      "cols": 4,
+      "rows": 4,
+      "x": 5,
+      "y": 4,
+      "componentName": "ChartWidgetComponent",
+      "inputs": {
+        "dataSource": "555666777",
+        "type": "line",
+        "title": "Weekly Sales",
+        "textColor": "#FFF",
+        "showLegend": false,
+        "showXAxis": true,
+        "showYAxis": true
+      }
+    },
+    {
+      "cols": 4,
+      "rows": 4,
+      "x": 5,
+      "y": 8,
+      "componentName": "ChartWidgetComponent",
+      "inputs": {
+        "dataSource": "666777888",
+        "type": "pie",
+        "title": "Inventory by Segment",
+        "textColor": "#FFF",
+        "showLegend": true,
+        "showXAxis": false,
+        "showYAxis": false
+      }
+    },
+    {
+      "cols": 3,
+      "rows": 6,
+      "x": 9,
+      "y": 0,
+      "componentName": "WeatherWidgetComponent",
+      "inputs": {
+        "rows": 6
+      }
+    },
+    {
+      "cols": 3,
+      "rows": 6,
+      "x": 9,
+      "y": 6,
+      "componentName": "MapWidgetComponent",
+      "inputs": {
+        "dataSource": "222333444",
+        "mapTypeId": "roadmap",
+        "zoom": 12
+      }
+    }
+  ],
+  "dataSets": [
+    {
+      "id": "111222333",
+      "data": [
+        {
+          "id": "8289300940",
+          "status": "normal",
+          "date": 1556301309000,
+          "subject": "Out of Office: Gary Johnson",
+          "message": "Gary will be out of office all day. Returning tomorrow. Please direct all inquiries to David.",
+          "read": true
+        },
+        {
+          "id": "3696100103",
+          "status": "normal",
+          "date": 1556301309000,
+          "subject": "Out of Office: Bob Lewis",
+          "message": "Bob is on vacation until 5/1/2019.  Please direct all inquiries to Susie Worchester.",
+          "read": true
+        },
+        {
+          "id": "2897575425",
+          "status": "alert",
+          "date": 1556301309000,
+          "subject": "New Inventory!",
+          "message": "We received new inventory from Chevrolet today. Check out the New Vehicles list!",
+          "read": true
+        }
+      ]
+    },
+    {
+      "id": "222333444",
+      "data": [
+        {
+          "id": "5660728640",
+          "name": "Honda of Kirkland",
+          "latitude": 47.67978,
+          "longitude": -122.17535
+        },
+        {
+          "id": "9863850060",
+          "name": "Honda of Seattle",
+          "latitude": 47.585455,
+          "longitude": -122.322474
+        }
+      ]
+    },
+    {
+      "id": "333444555",
+      "data": {
+        "id": "8139554245",
+        "title": "New Vehicles",
+        "subtitle": "Delivered in Last 24 Hours",
+        "columns": [
+          {
+            "label": "ID",
+            "key": "id"
+          },
+          {
+            "label": "Year",
+            "key": "year"
+          },
+          {
+            "label": "Make",
+            "key": "make"
+          },
+          {
+            "label": "Model",
+            "key": "model"
+          },
+          {
+            "label": "Exterior",
+            "key": "exterior"
+          },
+          {
+            "label": "Interior",
+            "key": "interior"
+          },
+          {
+            "label": "Price",
+            "key": "price"
+          }
+        ],
+        "rows": [
+          {
+            "id": 60453,
+            "year": 2018,
+            "make": "Chevrolet",
+            "model": "Silverado K1500 Reg 1LT",
+            "exterior": "Black",
+            "interior": "Jet Black",
+            "price": "$43,830"
+          },
+          {
+            "id": 60957,
+            "year": 2016,
+            "make": "Chevrolet",
+            "model": "Colorado Crew LT",
+            "exterior": "Blue",
+            "interior": "Jet Black",
+            "price": "$45,255"
+          },
+          {
+            "id": 70045,
+            "year": 2017,
+            "make": "Chevrolet",
+            "model": "Silverado K1500 Crew 2LZ",
+            "exterior": "Red",
+            "interior": "Jet Black",
+            "price": "$59,730"
+          },
+          {
+            "id": 70128,
+            "year": 2017,
+            "make": "Chevrolet",
+            "model": "Impala LT",
+            "exterior": "Silver",
+            "interior": "Silver",
+            "price": "$33,835"
+          },
+          {
+            "id": 70164,
+            "year": 2017,
+            "make": "GMC",
+            "model": "Sierra K1500 XCAB SLE",
+            "exterior": "Black",
+            "interior": "Cocoa",
+            "price": "$45,595"
+          },
+          {
+            "id": 60453,
+            "year": 2018,
+            "make": "Chevrolet",
+            "model": "Silverado K1500 Reg 1LT",
+            "exterior": "Black",
+            "interior": "Jet Black",
+            "price": "$43,830"
+          },
+          {
+            "id": 60957,
+            "year": 2016,
+            "make": "Chevrolet",
+            "model": "Colorado Crew LT",
+            "exterior": "Blue",
+            "interior": "Jet Black",
+            "price": "$45,255"
+          },
+          {
+            "id": 70045,
+            "year": 2017,
+            "make": "Chevrolet",
+            "model": "Silverado K1500 Crew 2LZ",
+            "exterior": "Red",
+            "interior": "Jet Black",
+            "price": "$59,730"
+          },
+          {
+            "id": 70128,
+            "year": 2017,
+            "make": "Chevrolet",
+            "model": "Impala LT",
+            "exterior": "Silver",
+            "interior": "Silver",
+            "price": "$33,835"
+          },
+          {
+            "id": 70164,
+            "year": 2017,
+            "make": "GMC",
+            "model": "Sierra K1500 XCAB SLE",
+            "exterior": "Black",
+            "interior": "Cocoa",
+            "price": "$45,595"
+          },
+          {
+            "id": 60453,
+            "year": 2018,
+            "make": "Chevrolet",
+            "model": "Silverado K1500 Reg 1LT",
+            "exterior": "Black",
+            "interior": "Jet Black",
+            "price": "$43,830"
+          },
+          {
+            "id": 60957,
+            "year": 2016,
+            "make": "Chevrolet",
+            "model": "Colorado Crew LT",
+            "exterior": "Blue",
+            "interior": "Jet Black",
+            "price": "$45,255"
+          }
+        ]
+      }
+    },
+    {
+      "id": "444555666",
+      "data": {
+        "id": "7810825347",
+        "labels": [
+          "Alex",
+          "Bob",
+          "Harry",
+          "Jerry",
+          "Lisa",
+          "Mike",
+          "Paul",
+          "Rachel",
+          "Steve",
+          "Ted"
+        ],
+        "data": [
+          {
+            "label": "New",
+            "data": [
+              18,
+              23,
+              17,
+              14,
+              27,
+              32,
+              11,
+              15,
+              28,
+              9,
+              17
+            ]
+          },
+          {
+            "label": "Used",
+            "data": [
+              7,
+              4,
+              10,
+              11,
+              5,
+              6,
+              16,
+              22,
+              15,
+              19,
+              20
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "555666777",
+      "data": {
+        "id": "8308077686",
+        "labels": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "data": [
+          {
+            "label": "New",
+            "data": [
+              11,
+              17,
+              15,
+              22,
+              24,
+              31,
+              30
+            ]
+          },
+          {
+            "label": "Used",
+            "data": [
+              12,
+              22,
+              11,
+              26,
+              33,
+              22,
+              25
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "666777888",
+      "data": {
+        "id": "2684695349",
+        "labels": [
+          "Truck/SUV",
+          "Car/Van",
+          "Motorcycle"
+        ],
+        "data": [
+          {
+            "label": "Count",
+            "data": [
+              434,
+              322,
+              25
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
